@@ -1,7 +1,8 @@
 var data = {
   time: 0,
   hub: {
-    heroes: []
+    heroes: [],
+    quests: []
   }
 }
 
@@ -27,7 +28,10 @@ class Game {
 
   gameInterval() {
     data.time = data.time + 0.1;
-    document.getElementsByClassName('time')[0].innerHTML = data.time;
+    for (quest in data.quests) {
+      quest.update();
+    }
+    // document.getElementsByClassName('time')[0].innerHTML = data.time;
   }
 }
 
